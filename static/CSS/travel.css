@@ -1,0 +1,83 @@
+h3 {
+  color:aqua;
+}
+p{color:antiquewhite;}
+
+.all1{
+  background-color:lightblue !important;
+  /* background-image: url(../images/clouds.jpeg) !important; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+    /* vh */
+  width: 100%; 
+
+}
+
+.all2 {
+    background-color:lightblue !important;
+    /* background-image: url(../images/clouds.jpeg) !important; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+      /* vh */
+    width: 100%; 
+}
+
+.head{
+  /* display: inline-block; */
+  margin-top: 20px;
+  font-size: 30;
+  color:lightgreen;
+  
+}
+.main {
+text-align: center;
+}
+
+#id{
+  font-size: 30;
+  color:goldenrod;
+  text-align: center;
+}
+
+.pic {
+  display: inline;
+} 
+
+.hidden{
+display: none!important;
+  /* transition: 5s; */
+}
+
+.box-element{
+box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+background-color: #fff;
+border-radius: 4px;
+padding: 10px;
+margin-left: 120px;
+}
+
+.login-field {
+margin: 10px;
+width: 80%;
+display: block;
+padding: 5px;
+}
+
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+
+.top-image {
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
+  display: block;
+  width: 83.65%;
+  height: 200px;
+  margin-left: 60px;
+}
