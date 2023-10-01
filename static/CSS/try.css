@@ -1,0 +1,42 @@
+/* Add this CSS to your existing CSS file */
+body {
+  background-color: blue;
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+#imagePopup {
+  position: fixed;
+  bottom: 0; /* Start at the bottom of the screen */
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+  animation: slideUp 2s ease-in-out; /* Adjust the animation duration as needed (e.g., 2s) */
+  transform: translateY(100%); /* Initially off-screen */
+}
+
+#imagePopup.show {
+  animation: slideUp 2s ease-in-out forwards; /* Adjust the animation duration as needed (e.g., 2s) */
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
+}
