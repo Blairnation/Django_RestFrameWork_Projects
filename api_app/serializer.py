@@ -10,6 +10,8 @@ class CarSerializer(serializers.ModelSerializer):
         depth = 1
 
 class CarPlanSerializer(serializers.ModelSerializer):
+    # car = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = CarPlan
         fields = '__all__'
@@ -35,6 +37,7 @@ class StudentsSerializer(serializers.ModelSerializer):
 
     oldest = serializers.SerializerMethodField('_get_oldest_student')
 
+
     def _get_oldest_student(self, student_object):
         global highest_age
         
@@ -53,4 +56,4 @@ class StudentsSerializer(serializers.ModelSerializer):
 class ForecastSerializer(serializers.ModelSerializer):
     class Meta:
         model = Forecast
-        fields = '__all__'
+        fields = ['id', 'timstamp', 'temperature', 'description', 'city']

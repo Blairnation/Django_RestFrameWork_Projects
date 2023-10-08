@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Car,CarPlan,PostRates, Posts, Modules, Students
+from .models import Car,CarPlan,PostRates, Posts, Modules, Students, Forecast
+
 
 # Register your models here.
 admin.site.register(Car)
@@ -8,3 +9,4 @@ admin.site.register(Posts)
 admin.site.register(PostRates)
 admin.site.register(Modules)
 admin.site.register(Students)
+admin.site.register(Forecast)

@@ -1,6 +1,6 @@
 /* Add this CSS to your existing CSS file */
 body {
-  background-color: blue;
+  background-color: rgb(25, 25, 95);
 }
 
 
@@ -20,22 +20,16 @@ body {
   background-color: #fff;
   padding: 20px;
   box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
-  animation: slideUp 2s ease-in-out; /* Adjust the animation duration as needed (e.g., 2s) */
+  animation: slideUp 1s ease-in-out; /* Adjust the animation duration as needed (e.g., 2s) */
   transform: translateY(100%); /* Initially off-screen */
 }
 
 #imagePopup.show {
-  animation: slideUp 2s ease-in-out forwards; /* Adjust the animation duration as needed (e.g., 2s) */
+ animation: slideUp 1s ease-in-out forwards;
   display: block;
+  top: 40%; /* Set to 50% from the top */
+  transform: translateY(-50%); /* Center vertically */
 }
-
-
-
-
-
-
-
-
 
 .hidden {
   display: none;

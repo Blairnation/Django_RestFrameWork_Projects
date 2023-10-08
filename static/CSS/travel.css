@@ -4,7 +4,7 @@ h3 {
 p{color:antiquewhite;}
 
 .all1{
-  background-color:lightblue !important;
+  background-color:rgba(26, 26, 126, 0.767) !important;
   /* background-image: url(../images/clouds.jpeg) !important; */
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@ p{color:antiquewhite;}
 }
 
 .all2 {
-    background-color:lightblue !important;
+    background-color:rgba(26, 26, 126, 0.767) !important;
     /* background-image: url(../images/clouds.jpeg) !important; */
     background-position: center;
     background-repeat: no-repeat;
@@ -57,7 +57,7 @@ box-shadow:hsl(0, 0%, 80%) 0 0 16px;
 background-color: #fff;
 border-radius: 4px;
 padding: 10px;
-margin-left: 120px;
+margin-left: 160px;
 }
 
 .login-field {

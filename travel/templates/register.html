@@ -20,10 +20,20 @@
 
 </head>
 <body class="all2">
+
+  {% for message in messages %}
+    <div class="alert alert-{{ message }} alert-dismissable fade show" role="alert">
+      <strong>Message:</strong>{{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endfor %}
+
   <div class="top-image">
     <img class="top-image" src="{% static 'images/travel2.jpeg' %}" alt="">
   </div>
-  <div class="box-element" style="width: 70%;">
+  <div class="box-element" style="width: 70%; background-color: blueviolet;">
     <h3 style="text-align: center;">REGISTER</h3>
     <form action="" method="post">
       {% csrf_token %}
@@ -43,22 +53,55 @@
           <input required class="form-control"  type="password" name="password2" placeholder="Re-Enter Password...">
         </div>
   
-        <div class="login-field">
-           <input id="form-button" class="btn btn-success btn-block" type="submit" value="Register">
+        <div class="login-field" style="text-align: center;">
+           <input id="form-button" class="btn btn-success btn-block"  type="submit" value="Register">
         </div>
     </form>
     <br>
+      
+    <button class="btn btn-light" style="display: block;  margin-left: 20px;">
+      <a class="authentication-button__component "  style="text-decoration: none;" href="https://accounts.google.com/o/oauth2/auth?client_id=330458598700-tvc98fsf0a3np731fossp5rnd0v3ddga.apps.googleusercontent.com&amp;response_type=code&amp;scope=email+profile+openid&amp;redirect_uri=https://app.heylink.me/login/google"><div class="icon google"></div><div class="authentication-button-content">Sign up with <b>Google</b></div></a>
+    </button>
+    <br>
+    
+    <button class="btn btn-light" style="margin-left: 20px;" >
+      <a class="authentication-button__component " style="text-decoration: none;" href="https://www.facebook.com/v11.0/dialog/oauth?client_id=266003681172790&amp;redirect_uri=https://app.heylink.me/login/facebook&amp;state=fbloginheylinkme&amp;scope=email"><div class="icon facebook"></div><div class="authentication-button-content">Sign up with <b>Facebook</b></div></a>
+    </button>
+    
+  </a>
+
+
+  
     <hr>
     <div>
       <p><strong style="color: black;">Already have an account.Login <a href="{% url 'login' %}">here</a></strong></p>
+      <p> <a class="btn btn-outline-dark" href="{% url 'travel' %}">&#x2190; Back To Home</a></p>
     </div>
   </div>
 
-  
+<!-- 
+  <!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" /><link rel="icon" type="image/x-icon"
+   href="https://cdn-f.heylink.me/static/favicon_dark.ico" />
+   <link rel="shortcut icon" href="https://cdn-f.heylink.me/static/favicon_dark.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+   <meta property="og:site_name" content="HeyLink.me" /><title>HeyLink.me Dashboard | Link Management</title>
+   <meta property="og:title" content="HeyLink.me Dashboard | Link Management" /><meta name="description" content="HeyLink.me dashboard. Free bio link tool used by the best businesses and influencers." />
+   <meta property="og:description" content="HeyLink.me dashboard. Free bio link tool used by the best businesses and influencers." />
+   <meta property="og:image" content="https://cdn-f.heylink.me/static/header-img.png" />
+   <script>const ttqDomain="heylink.me";ttqDomain===window.location.hostname?window.ttq=null:function(t,e,n){t.TiktokAnalyticsObject=n;var o=t[n]=t[n]||[];o.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],o.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<o.methods.length;i++)o.setAndDefer(o,o.methods[i]);o.instance=function(t){for(var e=o._i[t]||[],n=0;n<o.methods.length;n++)o.setAndDefer(e,o.methods[n]);return e},o.load=function(t,e){var i="https://analytics.tiktok.com/i18n/pixel/events.js";o._i=o._i||{},o._i[t]=[],o._i[t]._u=i,o._t=o._t||{},o._t[t]=+new Date,o._o=o._o||{},o._o[t]=e||{};var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=i+"?sdkid="+t+"&lib="+n;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(a,s)},o.load("C1902KRQIA5GK7IMV8HG"),o.page()}(window,document,"ttq")</script>
+   <script> const ymDomain="heylink.me";ymDomain===window.location.hostname?window.ym=null:(!function(n,e,t,a,c,i,m){n[c]=n[c]||function(){(n[c].a=n[c].a||[]).push(arguments)},n[c].l=1*new Date,i=e.createElement(t),m=e.getElementsByTagName(t)[0],i.async=1,i.src="https://mc.yandex.ru/metrika/tag.js",m.parentNode.insertBefore(i,m)}(window,document,"script",0,"ym"),window.ym(69416935,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0}))</script><script>!function(e,a,t,n,o){var c,r,d;e[o]=e[o]||[],c=function(){var a={ti:"56371538"};a.q=e[o],e[o]=new UET(a),e[o].push("pageLoad")},(r=a.createElement(t)).src=" //bat.bing.com/bat.js",r.async=1,r.onload=r.onreadystatechange=function(){var e=this.readyState;e&&"loaded"!==e&&"complete"!==e||(c(),r.onload=r.onreadystatechange=null)},(d=a.getElementsByTagName(t)[0]).parentNode.insertBefore(r,d)}(window,document,"script",0,"uetq")</script><script defer="defer" src="https://cdn-f.heylink.me/static/js/main.838c4907.js"></script><link href="https://cdn-f.heylink.me/static/css/main.dc3f5a28.css" rel="stylesheet">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript> 
+    <div id="root"></div><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"8110402d39587f07","token":"2326dabcda0f42f9b2ea16ef2ef83d6d","version":"2023.8.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html> -->
+
+  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon="{&quot;rayId&quot;:&quot;8124f07beed20338&quot;,&quot;token&quot;:&quot;2326dabcda0f42f9b2ea16ef2ef83d6d&quot;,&quot;version&quot;:&quot;2023.8.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="{% static 'JS/travel.js' %}"></script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SLMX7BZBWP"></script>
+  <!-- <script type="text/javascript" src="{% static 'JS/travel.js' %}"></script> -->
   
 </body>
 </html>

@@ -18,13 +18,23 @@
 
 </head>
 <body class="all2">
+
+  {% for message in messages %}
+        <div class="alert alert-{{ message }} alert-dismissable fade show" role="alert">
+          <strong>Message:</strong>{{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+             <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  {% endfor %}
+
   <div class="loginpage">
     <div class="top-image">
       <img class="top-image" src="{% static 'images/travel2.jpeg' %}" alt="">
     </div>
-    <div class="box-element" style="width: 70%;">
-      <h3>Login</h3>
-      <br>
+    <div class="box-element" style="width: 70%; background-color: blueviolet;">
+      <h3 style="text-align: center;">Login</h3>
+  
       <form action="" method="post">
          {% csrf_token %}
             <div class="login-field">
@@ -35,23 +45,38 @@
               <input required class="form-control"  type="password" name="password" placeholder="Password...">
           </div>
 
-          <div class="login-field">
+          <div class="login-field" style="text-align: center;">
             <input id="form-button" class="btn btn-success btn-block" type="submit" value="Login">
           </div>
       </form>
+      
+      <button class="btn btn-light" style="display: block;  margin-left: 20px;">
+        <a class="authentication-button__component " style="text-decoration: none;" href="https://accounts.google.com/o/oauth2/auth?client_id=330458598700-tvc98fsf0a3np731fossp5rnd0v3ddga.apps.googleusercontent.com&amp;response_type=code&amp;scope=email+profile+openid&amp;redirect_uri=https://app.heylink.me/login/google"><div class="icon google"></div>
+          <div class="authentication-button-content" >Log in with <b>Google</b></div></a>
+      </button>
+      <br>
+      
+      <button class="btn btn-light" style="margin-left: 20px;" >
+        <a class="authentication-button__component " style="text-decoration: none;" href="https://www.facebook.com/v11.0/dialog/oauth?client_id=266003681172790&amp;redirect_uri=https://app.heylink.me/login/facebook&amp;state=fbloginheylinkme&amp;scope=email"><div class="icon facebook"></div>
+          <div class="authentication-button-content">Log in with <b>Facebook</b></div></a>
+      </button>
+      
       <br>
       <hr>
       <div>
-        <p><strong style="color: black;">Don't have an account.<a href="{% url 'register' %}">Register</a></strong></p>
+        <p><strong style="color: black;">Don't have an account.<a href="{% url 'register' %}">Register Here</a></strong> </p>
+        <p> <a class="btn btn-outline-dark" href="{% url 'travel' %}">&#x2190; Back To Home</a></p>
+        
       </div>
     </div>
 </div>  
 
-
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon="{&quot;rayId&quot;:&quot;81252eedec267f08&quot;,&quot;token&quot;:&quot;2326dabcda0f42f9b2ea16ef2ef83d6d&quot;,&quot;version&quot;:&quot;2023.8.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SLMX7BZBWP"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script type="text/javascript" src="{% static 'JS/travel.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'JS/travel.js' %}"></script> -->
 
 </body>
 </html>

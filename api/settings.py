@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3)r44sq#0rf^t7i75!h9_8=3s4b+7!ty(!xfc__o!pom1!hi4)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'travelweb.local']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'dj_rest_auth.registration',
     'api_app',
     'userapp',
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'api.urls'
@@ -121,7 +123,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
     #     'rest_framework.authentication.BasicAuthentication',
     #     'rest_framework.authentication.SessionAuthentication',
-          'rest_framework_simplejwt.authentication.JWTAuthentication',
+        #   'rest_framework_simplejwt.authentication.JWTAuthentication',
+          'allauth.account.auth_backends.AuthenticationBackend',
     ],
     # 'USER_DETAILS_SERIALIZER':'userapp.serializer.UserDetailsSerializer'
 
@@ -136,7 +139,18 @@ REST_FRAMEWORK = {
       'userapp': '2/day',
       'api_app': '4/day'
     },
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+       'PAGE_SIZE': 3
+
 }
+
+# CACHES = {
+#   'default': {
+#     'BACKEND':'django.core.cache.backends.filebased.FileBasedCache', 
+#     'LOCATION': 'C:\Users\BLAIR NATION\Desktop\django_api\api',
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -176,3 +190,45 @@ EMAIL_USE_TLS = True  # Use TLS encryption for secure communication
 EMAIL_HOST_USER = 'tonyblair246@gmail.com'  # Replace with your SMTP username
 EMAIL_HOST_PASSWORD = 'qfjr pxvq xrzo namt'  # Replace with your SMTP password
 DEFAULT_FROM_EMAIL = 'default fom email'
+
+
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    # 'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '706076928032-sapi112aub0s6d4aqq23h6rbd458p6ml.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_FACEBOOK_KEY = 'your-facebook-app-id'
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        'APP': {
+            'client_id': '706076928032-sapi112aub0s6d4aqq23h6rbd458p6ml.apps.googleusercontent.com',
+            'secret': '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',
+            'redirect_uris': ['http://localhost:8000/complete/google-oauth2/'],
+        },
+    },
+    # Add other providers if needed
+}
+
+SITE_ID = 1
+
+AUTHENTICATION_CLASSES = (
+    # ...
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    # ...
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
+)
+
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/travel/'

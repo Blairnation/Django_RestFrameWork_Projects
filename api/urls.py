@@ -20,6 +20,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from allauth.socialaccount.providers.oauth2.views import OAuth2View
+from allauth.socialaccount.providers.oauth2.views import (OAuth2CallbackView, OAuth2LoginView)
+from allauth.socialaccount.providers.oauth2.client import OAuth2Error
+from allauth.socialaccount.providers.oauth2.views import OAuth2CallbackView, OAuth2LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +36,13 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
+    path('accounts/', include('allauth.urls')),
+    
+
+    path('rest-auth/', include('dj_rest_auth.urls')),  # Add this line
+    path('accounts/', include('allauth.socialaccount.urls')),
+    
+
+    path('complete/google-oauth2/', OAuth2CallbackView, name='google-oauth2-callback'),
+    path('login/google-oauth2/', OAuth2LoginView, name='google-oauth2-login'),
 ]

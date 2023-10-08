@@ -15,6 +15,7 @@ from django.core.mail import send_mail
 from threading import Thread
 import requests
 from django.shortcuts import get_object_or_404
+from rest_framework.pagination import LimitOffsetPagination
 # Create your views here.
 
 
@@ -45,6 +46,7 @@ class Message(APIView):
 
 class CarViewSet(viewsets.ModelViewSet):
     serializer_class = CarSerializer
+    pagination_class = LimitOffsetPagination
    
     def get_queryset(self):
         car = Car.objects.all()
